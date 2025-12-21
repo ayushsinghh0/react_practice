@@ -53,7 +53,7 @@ function App() {
     }}></input>
     {
       b.map((sent,index)=>(
-        <p key= {index} >{sent}</p>
+        <p style = {{backgroundColor:"whitesmoke"}}key= {index} >{sent}</p>
 
       ))
     }
