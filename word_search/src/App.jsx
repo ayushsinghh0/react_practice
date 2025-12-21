@@ -17,9 +17,21 @@ for(let i=1;i<1000;i++){
   para+=" "
 }
 
+
 function App() {
-  const [sentences,setSentences]=useState(sentence);
+  const [sentences,setSentences]=useState([]);
   const [filter,setFilter]=useState("");
+  
+
+  function handleFileChange(e){
+    const file=e.target.files[0];
+    const reader=new FileReader();
+    reader.onload=function(){
+      const text = reader.result;
+      const lines = text.split("\n"); // convert string → array
+      setSentences(lines);    }
+    reader.readAsText(file);
+  }
   
   
   const {b,c}=useMemo(()=>{
@@ -48,6 +60,11 @@ function App() {
 
   return (
     <>
+<input 
+        type="file" 
+        accept=".txt"
+        onChange={handleFileChange}
+      />
     <input type="text" onChange={(e)=>{
       setFilter(e.target.value);
     }}></input>
