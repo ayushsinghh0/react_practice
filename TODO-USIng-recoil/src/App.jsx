@@ -2,6 +2,7 @@
 import { RecoilRoot, useRecoilState, useSetRecoilState } from 'recoil'
 import { useState } from 'react'
 import { todos } from '../Atom/todo'
+import { FilterTodos } from '../Components/TodoFilter';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <>
     <RecoilRoot>
       <TodoItemCreater/>
+      <FilterTodos/>
        <TodoList/>
     </RecoilRoot>
 
@@ -24,6 +26,7 @@ function TodoList() {
   return (
     <>
       {todoList.map((todoItem) => (
+        
         <TodoItem key={todoItem.id} item={todoItem} />
       ))}
     </>
