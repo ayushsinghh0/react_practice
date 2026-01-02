@@ -2,13 +2,19 @@ import { use, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { Route,Routes,useNavigate } from 'react-router-dom';
+import Home from './pages/pets';
 
 function App() {
   const [Pets, setPets] = useState([]);
-
+  const Navigate=useNavigate();
   return (
     <>
-    <div className='head'></div>
+    <button onClick={()=>Navigate("/pets")}> Show All Dogs </button>
+    <Routes>
+      <Route path="/pets" element={<Home/>}/>
+      </Routes>
+    <div className='head'>Pet Adoption</div>
       <PetCreater />
 
 

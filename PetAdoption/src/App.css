@@ -9,6 +9,13 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 }
+.head{
+  height: 10px;
+  width : 1000px;
+  padding-left: 750px;
+  padding-top: 90px;
+  background-color: aqua;
+}
 
 
 .box {
