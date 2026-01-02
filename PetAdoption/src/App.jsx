@@ -6,16 +6,20 @@ import { Route,Routes,useNavigate } from 'react-router-dom';
 import Home from './pages/pets';
 
 function App() {
-  const [Pets, setPets] = useState([]);
-  const Navigate=useNavigate();
+  const [Pets, SetPets] = useState([]);
+  const navigate=useNavigate();
   return (
     <>
-    <button onClick={()=>Navigate("/pets")}> Show All Dogs </button>
+    <button onClick={()=>navigate("/pets")}> Show All Dogs </button>
     <Routes>
-      <Route path="/pets" element={<Home/>}/>
+      <Route path="/pets" element={<Home pet={Pets}/>}/>
+      <Route path="" element={ 
+        <>
+        <div className='head'>Pet Adoption</div>
+        <PetCreater  SetPets={SetPets}/>
+        </>
+    }/>
       </Routes>
-    <div className='head'>Pet Adoption</div>
-      <PetCreater />
 
 
     </>
@@ -26,7 +30,7 @@ function Show() {
 
 }
 
-function PetCreater() {
+function PetCreater({SetPets}) {
   const [petname, SetPetName] = useState("");
   const [petType, SetPetType] = useState("");
   const [breed, SetBreed] = useState("");
@@ -34,8 +38,6 @@ function PetCreater() {
   const [Email, SetEmail] = useState("");
   const [Phoneno, SetPhoneno] = useState("");
 
-
-  const [pet,SetPets]=useState([]);
 
 
   const adddetails=()=>{
