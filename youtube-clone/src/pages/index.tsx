@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import { VideoCard } from "@/components/Videocard";
+import { VideoGrid } from "@/components/videoGrid";
+import { AppBar } from "@/components/Appbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +17,8 @@ const geistMono = Geist_Mono({
 export default function Home() {
   return (
     <div>
-      <VideoCard/>
+      <AppBar></AppBar>
+      <VideoGrid></VideoGrid>
     </div>
   );
 }
